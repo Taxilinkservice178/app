@@ -1,23 +1,22 @@
-[17:58, 6/3/2026] José Luis: ​https://tu-usuario.github.io/App/
-(Cambia "tu-usuario" por el nombre que usas en GitHub).
-[18:22, 6/3/2026] José Luis: <!DOCTYPE html>
-<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mercedes 124 Experience</title>
-    <style>
-        body { background-color: #000; color: #D4AF37; font-family: 'Georgia', serif; text-align: center; padding: 40px 20px; margin: 0; }
-        h1 { font-size: 26px; text-transform: uppercase; border-bottom: 2px solid #D4AF37; padding-bottom: 15px; margin: 20px auto; max-width: 80%; }
-        .slogan { font-size: 22px; font-style: italic; margin: 40px 0; }
-        .whatsapp-btn { display: inline-block; background-color: #D4AF37; color: #000; padding: 18px 35px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 18px; }
-    </style>
+    <link rel="apple-touch-icon" href="icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
 </head>
-<body>
-    <div style="font-size: 60px;">⭐</div>
-    <h1>Mercedes 124 Limusina</h1>
-    <p class="slogan">"Usted ya está en el Mercedes 124, ahora viva la experiencia completa"</p>
-    <a href="https://wa.me/34636321996" class="whatsapp-btn">RESERVAR POR WHATSAPP</a>
-</body>
-</html>
-  
+
+<div id="ventana-instalacion" style="background-color: #000; color: #D4AF37; border: 2px solid #D4AF37; padding: 20px; text-align: center; font-family: Arial;">
+    <img src="icon.png" style="width: 80px; border-radius: 15px;">
+    <p>¿Quieres descargar nuestra Apple para tener acceso directo al Mercedes 124?</p>
+    <button onclick="instalarApp()" style="background-color: #D4AF37; color: #000; padding: 10px 20px; font-weight: bold; border: none; margin: 5px;">ACEPTO</button>
+    <button onclick="cerrarVentana()" style="background-color: #333; color: #fff; padding: 10px 20px; border: none; margin: 5px;">NO ACEPTO</button>
+</div>
+
+<script>
+function cerrarVentana() {
+    document.getElementById('ventana-instalacion').style.display = 'none';
+}
+function instalarApp() {
+    // Aquí el sistema pide el permiso oficial al teléfono
+    alert("Iniciando descarga... El icono aparecerá en tu pantalla de inicio.");
+    cerrarVentana();
+}
+</script>
