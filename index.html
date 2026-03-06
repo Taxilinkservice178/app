@@ -1,22 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
 <head>
-    <link rel="apple-touch-icon" href="icon.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taxi Service - Mercedes Limusina</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4; margin: 0; padding: 20px; }
+        .container { background: white; padding: 20px; border-radius: 15px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); max-width: 400px; margin: auto; }
+        img { width: 100%; border-radius: 10px; margin-bottom: 15px; }
+        h1 { color: #333; font-size: 22px; }
+        p { color: #666; font-size: 16px; }
+        .btn-whatsapp { display: inline-block; background-color: #25D366; color: white; padding: 15px 25px; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 18px; margin-top: 20px; }
+    </style>
 </head>
+<body>
 
-<div id="ventana-instalacion" style="background-color: #000; color: #D4AF37; border: 2px solid #D4AF37; padding: 20px; text-align: center; font-family: Arial;">
-    <img src="icon.png" style="width: 80px; border-radius: 15px;">
-    <p>¿Quieres descargar nuestra Apple para tener acceso directo al Mercedes 124?</p>
-    <button onclick="instalarApp()" style="background-color: #D4AF37; color: #000; padding: 10px 20px; font-weight: bold; border: none; margin: 5px;">ACEPTO</button>
-    <button onclick="cerrarVentana()" style="background-color: #333; color: #fff; padding: 10px 20px; border: none; margin: 5px;">NO ACEPTO</button>
+<div class="container">
+    <h1>No solo realices un viaje, realiza la experiencia</h1>
+    
+    <img src="Icon.png.. png" alt="Mercedes Limusina 124">
+
+    <p>Servicio exclusivo de Limusina Mercedes 124 en toda Canarias.</p>
+    <p>Ubicados en el Puerto de la Cruz.</p>
+
+    <a href="https://wa.me/34636321996" class="btn-whatsapp">
+        Contactar por WhatsApp
+    </a>
 </div>
 
-<script>
-function cerrarVentana() {
-    document.getElementById('ventana-instalacion').style.display = 'none';
-}
-function instalarApp() {
-    // Aquí el sistema pide el permiso oficial al teléfono
-    alert("Iniciando descarga... El icono aparecerá en tu pantalla de inicio.");
-    cerrarVentana();
-}
-</script>
+</body>
+</html>
