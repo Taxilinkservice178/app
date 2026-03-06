@@ -3,151 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mercedes Limusina Experience</title>
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon" href="tu-logo-dorado.png">
+    <title>Mercedes Limusina VIP</title>
     
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'es', 
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE, 
+                autoDisplay: true
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
     <style>
-        body { 
-            background-color: #000; 
-            color: #D4AF37; 
-            font-family: 'Segoe UI', Roboto, sans-serif; 
-            margin: 0; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height: 100vh; 
-            text-align: center;
-        }
-
-        .contenedor-experiencia {
-            width: 90%;
-            max-width: 450px;
-            padding: 30px;
-            border: 2px solid #D4AF37;
-            border-radius: 20px;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
-        }
-
-        /* PASO 1: BOTONES GRANDES Y MUY SEPARADOS */
-        .boton-si { 
-            background-color: #D4AF37; 
-            color: #000; 
-            border: none; 
-            padding: 20px 60px; 
-            border-radius: 10px; 
-            font-weight: bold; 
-            font-size: 20px; 
-            cursor: pointer;
-            display: block;
-            width: 100%;
-            margin-bottom: 50px; /* ESPACIO PARA EL DEDO */
-        }
-
-        .boton-no { 
-            background: transparent; 
-            color: #D4AF37; 
-            border: 1px solid #D4AF37; 
-            padding: 15px; 
-            border-radius: 10px; 
-            cursor: pointer;
-            width: 60%;
-        }
-
-        /* PASO 2: BARRA DE CARGA */
-        #seccionCarga, #seccionFinal { display: none; }
+        body { background-color: #000; color: #D4AF37; font-family: 'Segoe UI', sans-serif; text-align: center; margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        .contenedor { width: 85%; max-width: 400px; padding: 40px 20px; border: 2px solid #D4AF37; border-radius: 30px; box-shadow: 0 0 20px rgba(212, 175, 55, 0.5); }
         
-        .barra-oro {
-            width: 100%;
-            height: 12px;
-            background: #333;
-            border-radius: 10px;
-            margin-top: 20px;
-            overflow: hidden;
-            border: 1px solid #D4AF37;
-        }
-        .progreso {
-            width: 0%;
-            height: 100%;
-            background: #D4AF37;
-            transition: width 3s linear;
-        }
+        /* BOTONES SEPARADOS PARA EL DEDO */
+        .boton-si { background: #D4AF37; color: #000; padding: 25px; width: 100%; border: none; border-radius: 15px; font-size: 22px; font-weight: bold; margin-bottom: 70px; cursor: pointer; text-transform: uppercase; }
+        .boton-no { background: transparent; color: #D4AF37; border: 1px solid #D4AF37; padding: 15px; width: 50%; border-radius: 10px; cursor: pointer; opacity: 0.6; }
 
-        .mensaje-guerra {
-            font-style: italic;
-            margin-top: 30px;
-            font-size: 18px;
-        }
+        /* BARRA DE CARGA DORADA */
+        #pantallaCarga, #pantallaFinal { display: none; }
+        .barra-ext { width: 100%; height: 15px; background: #222; border-radius: 10px; border: 1px solid #D4AF37; margin: 30px 0; overflow: hidden; }
+        .barra-int { width: 0%; height: 100%; background: linear-gradient(90deg, #D4AF37, #FFF); transition: width 3.5s linear; }
+
+        .lema { font-style: italic; font-size: 18px; margin-top: 40px; color: #F9E498; }
+        
+        /* OCULTAR ELEMENTOS DE GOOGLE TRANSLATE */
+        .goog-te-banner-frame.skiptranslate, .goog-te-gadget { display: none !important; }
+        body { top: 0px !important; }
     </style>
 </head>
 <body>
 
-<div class="contenedor-experiencia">
-    
-    <div id="paso1">
-        <h2 id="txtPregunta">¿QUIERE USTED DESCARGAR LA APPLE?</h2>
-        <button class="boton-si" onclick="iniciarDescarga()">SÍ</button>
-        <button class="boton-no" onclick="cerrar()">NO</button>
+<div id="google_translate_element" style="display:none;"></div>
+
+<div class="contenedor">
+    <div id="pantalla1">
+        <h2 id="pregunta">¿QUIERE USTED DESCARGAR LA APPLE?</h2>
+        <button class="boton-si" onclick="iniciarNavegacion()">SÍ</button>
+        <button class="boton-no" onclick="window.history.back()">NO</button>
     </div>
 
-    <div id="seccionCarga">
-        <p id="txtDescargando" style="font-size: 20px; font-weight: bold;">SE ESTÁ DESCARGANDO SU APPLE...</p>
-        <div class="barra-oro"><div id="barra" class="progreso"></div></div>
+    <div id="pantallaCarga">
+        <h3 id="cargando">SE ESTÁ DESCARGANDO SU APPLE...</h3>
+        <div class="barra-ext"><div id="barra" class="barra-int"></div></div>
     </div>
 
-    <div id="seccionFinal">
-        <h2 id="txtExito">SU APPLE SE HA DESCARGADO PERFECTAMENTE</h2>
-        <p id="txtBienvenida" style="font-size: 18px;">DISFRUTE DE SU APPLE, SE ENCUENTRA YA EN EL MERCEDES LIMUSINA</p>
-        <p class="mensaje-guerra" id="txtLema">"NO SOLO REALICES UN VIAJE, VIVE LA EXPERIENCIA"</p>
+    <div id="pantallaFinal">
+        <h2 id="exito">SU APPLE SE HA DESCARGADO PERFECTAMENTE</h2>
+        <p id="bienvenida">DISFRUTE DE SU APPLE, SE ENCUENTRA YA EN EL MERCEDES LIMUSINA</p>
+        <p class="lema" id="lema">"NO SOLO REALICES UN VIAJE, VIVE LA EXPERIENCIA"</p>
     </div>
-
 </div>
 
 <script>
-    // PASO TÉCNICO: TRADUCCIÓN AUTOMÁTICA SEGÚN IDIOMA DEL MÓVIL
-    const textos = {
-        es: { pre: "¿QUIERE USTED DESCARGAR LA APPLE?", des: "SE ESTÁ DESCARGANDO SU APPLE...", exi: "SU APPLE SE HA DESCARGADO PERFECTAMENTE", bie: "DISFRUTE DE SU APPLE, SE ENCUENTRA YA EN EL MERCEDES LIMUSINA", lem: '"NO SOLO REALICES UN VIAJE, VIVE LA EXPERIENCIA"' },
-        en: { pre: "DO YOU WANT TO DOWNLOAD THE APPLE?", des: "YOUR APPLE IS DOWNLOADING...", exi: "YOUR APPLE HAS BEEN DOWNLOADED PERFECTLY", bie: "ENJOY YOUR APPLE, YOU ARE ALREADY IN THE MERCEDES LIMOUSINE", lem: '"DO NOT JUST TAKE A TRIP, LIVE THE EXPERIENCE"' },
-        de: { pre: "MÖCHTEN SIE DIE APPLE HERUNTERLADEN?", des: "IHRE APPLE WIRD HERUNTERGELADEN...", exi: "IHRE APPLE WURDE PERFEKT HERUNTERGELADEN", bie: "GENIESSEN SIE IHRE APPLE, SIE BEFINDEN SICH BEREITS IN DER MERCEDES LIMOUSINE", lem: '"MACHEN SIE NICHT NUR EINE REISE, ERLEBEN SIE DAS ERLEBNIS"' },
-        ru: { pre: "ВЫ ХОТИТЕ СКАЧАТЬ APPLE?", des: "ВАШ APPLE ЗАГРУЖАЕТСЯ...", exi: "ВАШ APPLE СКАЧАН ОТЛИЧНО", bie: "НАСЛАЖДАЙТЕСЬ ВАШИМ APPLE, ВЫ УЖЕ В МЕРСЕДЕСЕ ЛИМУЗИН", lem: '"НЕ ПРОСТО СОВЕРШАЙТЕ ПОЕЗДКУ, ПРОЖИВИТЕ ОПЫТ"' },
-        zh: { pre: "您想下载 APPLE 吗？", des: "您的 APPLE 正在下载...", exi: "您的 APPLE 已完美下载", bie: "享受您的 APPLE，您已经在梅赛德斯豪华轿车中", lem: '"不仅是旅行，更是体验"' }
-    };
-
-    // Detectar idioma (por defecto español si no está en la lista)
-    const lang = navigator.language.split('-')[0];
-    const t = textos[lang] || textos['es'];
-
-    // Aplicar traducciones
-    document.getElementById('txtPregunta').innerText = t.pre;
-    document.getElementById('txtDescargando').innerText = t.des;
-    document.getElementById('txtExito').innerText = t.exi;
-    document.getElementById('txtBienvenida').innerText = t.bie;
-    document.getElementById('txtLema').innerText = t.lem;
-
-    function iniciarDescarga() {
-        document.getElementById('paso1').style.display = 'none';
-        document.getElementById('seccionCarga').style.display = 'block';
+    function iniciarNavegacion() {
+        // Cambiar a pantalla de carga
+        document.getElementById('pantalla1').style.display = 'none';
+        document.getElementById('pantallaCarga').style.display = 'block';
         
-        setTimeout(() => {
-            document.getElementById('barra').style.width = '100%';
+        // Animación de la barra
+        setTimeout(() => { 
+            document.getElementById('barra').style.width = '100%'; 
         }, 100);
 
-        // Paso 4, 5 y 6 aparecen tras la carga
+        // Mostrar mensajes finales y redirigir
         setTimeout(() => {
-            document.getElementById('seccionCarga').style.display = 'none';
-            document.getElementById('seccionFinal').style.display = 'block';
+            document.getElementById('pantallaCarga').style.display = 'none';
+            document.getElementById('pantallaFinal').style.display = 'block';
             
-            // PASO 7: LANZAR LA PÁGINA DE GOOGLE
-            // Aquí debes poner el enlace de tu Google Sites
+            // REDIRECCIÓN FINAL A TU GOOGLE SITES
             setTimeout(() => {
-                window.location.href = "https://sites.google.com/view/tu-pagina-mercedes"; 
-            }, 5000); 
-        }, 3100);
-    }
-
-    function cerrar() {
-        window.close();
+                window.location.href = "https://sites.google.com/view/taxi-link-service/p%C3%A1gina-principal"; 
+            }, 4500); // Tiempo para leer el lema antes de saltar
+        }, 3800); // Tiempo de la barra de carga
     }
 </script>
 
