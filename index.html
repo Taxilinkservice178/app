@@ -4,84 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mercedes Limusina VIP</title>
-    
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'es', 
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE, 
-                autoDisplay: true
-            }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
+    <link rel="icon" href="CH.PNG" type="image/png">
+    <link rel="apple-touch-icon" href="CH.PNG">
+    <link rel="manifest" href="manifest.json">
     <style>
-        body { background-color: #000; color: #D4AF37; font-family: 'Segoe UI', sans-serif; text-align: center; margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
-        .contenedor { width: 85%; max-width: 400px; padding: 40px 20px; border: 2px solid #D4AF37; border-radius: 30px; box-shadow: 0 0 20px rgba(212, 175, 55, 0.5); }
-        
-        /* BOTONES SEPARADOS PARA EL DEDO */
-        .boton-si { background: #D4AF37; color: #000; padding: 25px; width: 100%; border: none; border-radius: 15px; font-size: 22px; font-weight: bold; margin-bottom: 70px; cursor: pointer; text-transform: uppercase; }
-        .boton-no { background: transparent; color: #D4AF37; border: 1px solid #D4AF37; padding: 15px; width: 50%; border-radius: 10px; cursor: pointer; opacity: 0.6; }
-
-        /* BARRA DE CARGA DORADA */
-        #pantallaCarga, #pantallaFinal { display: none; }
-        .barra-ext { width: 100%; height: 15px; background: #222; border-radius: 10px; border: 1px solid #D4AF37; margin: 30px 0; overflow: hidden; }
-        .barra-int { width: 0%; height: 100%; background: linear-gradient(90deg, #D4AF37, #FFF); transition: width 3.5s linear; }
-
-        .lema { font-style: italic; font-size: 18px; margin-top: 40px; color: #F9E498; }
-        
-        /* OCULTAR ELEMENTOS DE GOOGLE TRANSLATE */
-        .goog-te-banner-frame.skiptranslate, .goog-te-gadget { display: none !important; }
-        body { top: 0px !important; }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #D4AF37;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        img {
+            max-width: 80%;
+            height: auto;
+        }
+        h1 {
+            margin-top: 20px;
+            font-size: 1.5rem;
+        }
     </style>
 </head>
 <body>
-
-<div id="google_translate_element" style="display:none;"></div>
-
-<div class="contenedor">
-    <div id="pantalla1">
-        <h2 id="pregunta">¿QUIERE USTED DESCARGAR LA APPLE?</h2>
-        <button class="boton-si" onclick="iniciarNavegacion()">SÍ</button>
-        <button class="boton-no" onclick="window.history.back()">NO</button>
+    <div>
+        <img src="CH.PNG" alt="Logo Mercedes">
+        <h1>No solo realices un viaje, realiza la experiencia</h1>
     </div>
-
-    <div id="pantallaCarga">
-        <h3 id="cargando">SE ESTÁ DESCARGANDO SU APPLE...</h3>
-        <div class="barra-ext"><div id="barra" class="barra-int"></div></div>
-    </div>
-
-    <div id="pantallaFinal">
-        <h2 id="exito">SU APPLE SE HA DESCARGADO PERFECTAMENTE</h2>
-        <p id="bienvenida">DISFRUTE DE SU APPLE, SE ENCUENTRA YA EN EL MERCEDES LIMUSINA</p>
-        <p class="lema" id="lema">"NO SOLO REALICES UN VIAJE, VIVE LA EXPERIENCIA"</p>
-    </div>
-</div>
-
-<script>
-    function iniciarNavegacion() {
-        // Cambiar a pantalla de carga
-        document.getElementById('pantalla1').style.display = 'none';
-        document.getElementById('pantallaCarga').style.display = 'block';
-        
-        // Animación de la barra
-        setTimeout(() => { 
-            document.getElementById('barra').style.width = '100%'; 
-        }, 100);
-
-        // Mostrar mensajes finales y redirigir
-        setTimeout(() => {
-            document.getElementById('pantallaCarga').style.display = 'none';
-            document.getElementById('pantallaFinal').style.display = 'block';
-            
-            // REDIRECCIÓN FINAL A TU GOOGLE SITES
-            setTimeout(() => {
-                window.location.href = "https://sites.google.com/view/taxi-link-service/p%C3%A1gina-principal"; 
-            }, 4500); // Tiempo para leer el lema antes de saltar
-        }, 3800); // Tiempo de la barra de carga
-    }
-</script>
-
 </body>
 </html>
