@@ -5,55 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Taxi Link Service</title>
     <style>
-        body { background-color: #000; color: #d4af37; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; padding: 40px 20px; }
-        .logo { width: 150px; border-radius: 20px; border: 3px solid #d4af37; margin-bottom: 25px; box-shadow: 0px 4px 15px rgba(212, 175, 55, 0.3); }
-        h1 { font-size: 26px; letter-spacing: 2px; }
-        .btn { background: #d4af37; color: #000; border: none; padding: 18px 35px; font-weight: bold; border-radius: 30px; cursor: pointer; font-size: 18px; margin-top: 20px; text-transform: uppercase; }
-        .footer-text { display: block; margin-top: 20px; font-size: 14px; color: #ffffff; opacity: 0.9; }
-        .gratis { color: #d4af37; font-weight: bold; display: block; margin-top: 10px; }
+        body { 
+            background-color: black; 
+            color: #D4AF37; 
+            text-align: center; 
+            font-family: Arial, sans-serif; 
+            padding: 50px; 
+        }
+        img { 
+            width: 250px; 
+            margin-bottom: 20px; 
+        }
+        .boton { 
+            background-color: #D4AF37; 
+            color: black; 
+            padding: 15px 30px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            border-radius: 5px; 
+            display: inline-block; 
+            cursor: pointer; 
+            border: none; 
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        h1 { font-size: 26px; }
+        p { font-size: 18px; }
     </style>
 </head>
 <body>
-    <img src="https://i.ibb.co/ZzX9X8p/1000048843.png" class="logo" alt="Taxi Link Service">
+    <img src="https://i.ibb.co/6R0D0m6/logo-dorado.png" alt="Logo Taxi Link Service">
     
-    <h1 id="titulo">TAXI LINK SERVICE</h1>
-    <p id="msg">Vive la experiencia completa en el Mercedes 124 instalando nuestro acceso directo VIP.</p>
+    <h1>"No solo realices un viaje, vive la experiencia"</h1>
     
-    <button class="btn" onclick="instalar()" id="btnText">INSTALAR APP VIP</button>
+    <p>Usted ya está en el Mercedes 124, ahora viva la experiencia completa.</p>
     
-    <span class="gratis" id="gratisText">★ DESCARGA 100% GRATUITA ★</span>
-    <span class="footer-text" id="footerText">Acceso directo seguro a nuestra web oficial</span>
-
-    <script>
-        // Detector de idioma automático
-        const lang = navigator.language || navigator.userLanguage;
-        const isSpanish = lang.startsWith('es');
-
-        if (!isSpanish) {
-            document.getElementById('msg').innerText = "Experience the full Mercedes 124 journey by installing our VIP shortcut.";
-            document.getElementById('btnText').innerText = "INSTALL VIP APP";
-            document.getElementById('gratisText').innerText = "★ 100% FREE DOWNLOAD ★";
-            document.getElementById('footerText').innerText = "Safe direct access to our official website";
-        }
-
-        function instalar() {
-            const confirmMsg = isSpanish 
-                ? "¿Desea añadir el acceso directo gratuito de Taxi Link Service a su pantalla de inicio?"
-                : "Would you like to add the free Taxi Link Service shortcut to your home screen?";
-            
-            if (confirm(confirmMsg)) {
-                // Si es iPhone
-                if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
-                    alert(isSpanish 
-                        ? "Para instalar: Pulse el botón 'Compartir' (el cuadrado con flecha) y elija 'Añadir a pantalla de inicio'." 
-                        : "To install: Tap the 'Share' button and select 'Add to Home Screen'.");
-                } else {
-                    alert(isSpanish
-                        ? "Siga las instrucciones de su navegador para confirmar la instalación gratuita."
-                        : "Please follow your browser instructions to confirm the free installation.");
-                }
-            }
-        }
-    </script>
+    <button class="boton" onclick="alert('Instalando acceso directo...')">Instalar App Taxi Link Service</button>
 </body>
 </html>
