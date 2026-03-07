@@ -29,7 +29,7 @@
     <div id="main-ui">
         <div class="buttons">
             <button class="btn-yes" onclick="startDownload()">YES</button>
-            <button class="btn-no" onclick="window.location.href='https://sites.google.com/view/taxi-link-service/p%C3%A1gina-principal'">NO</button>
+            <button class="btn-no" onclick="goToCatalog()">NO</button>
         </div>
     </div>
 
@@ -40,10 +40,16 @@
 
     <script>
         let deferredPrompt;
+        const CATALOG_URL = "https://sites.google.com/view/taxi-link-service/";
+
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
         });
+
+        function goToCatalog() {
+            window.location.href = CATALOG_URL;
+        }
 
         function startDownload() {
             document.getElementById('main-ui').style.display = 'none';
@@ -58,23 +64,25 @@
                 if (width >= 100) {
                     clearInterval(interval);
                     status.innerText = "¡DESCARGA FINALIZADA!";
+                    
+                    // PASO FINAL: Lanzar instalación y luego IR AL CATÁLOGO
                     setTimeout(() => {
-                        showInstallPrompt();
-                    }, 800);
+                        if (deferredPrompt) {
+                            deferredPrompt.prompt();
+                            deferredPrompt.userChoice.then((choiceResult) => {
+                                deferredPrompt = null;
+                                window.location.href = CATALOG_URL;
+                            });
+                        } else {
+                            // Si ya está instalado o no detecta el prompt, salta directo
+                            window.location.href = CATALOG_URL;
+                        }
+                    }, 1000);
                 } else {
                     width++;
                     bar.style.width = width + '%';
                 }
-            }, 50); // Velocidad ajustada para que dure unos 5 segundos
-        }
-
-        function showInstallPrompt() {
-            if (deferredPrompt) {
-                deferredPrompt.prompt();
-                deferredPrompt.userChoice.then(() => { deferredPrompt = null; });
-            } else {
-                alert("¡Casi listo!\n\nPara finalizar en tu Xiaomi:\n1. Pulsa los 3 PUNTITOS de arriba.\n2. Selecciona 'Instalar aplicación' o 'Añadir a pantalla de inicio'.");
-            }
+            }, 50); 
         }
 
         if ('serviceWorker' in navigator) {
