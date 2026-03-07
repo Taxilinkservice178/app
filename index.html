@@ -6,19 +6,7 @@
     
     <p style="color: #ffffff; font-family: 'Arial', sans-serif; font-size: 0.95em; margin-bottom: 20px; line-height: 1.5;">
         Instala nuestra App gratuita para vivir la experiencia completa.<br>
-        <span style="font-style: italic; color: #D4AF37;">Install our free App for the full experience.</span>
-    </p>
-
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
-        <button id="pwa-btn-yes" style="background-color: #D4AF37; color: #000; border: none; padding: 18px 45px; border-radius: 35px; font-family: 'Bebas Neue', sans-serif; font-size: 1.3em; font-weight: bold; cursor: pointer; width: 100%;">
-            SÍ, INSTALAR / YES, INSTALL
-        </button>
-
-        <button id="pwa-btn-no" style="background-color: transparent; color: #888; border: none; font-family: Arial, sans-serif; font-size: 0.85em; cursor: pointer; text-decoration: underline;">
-            Ahora no, continuar / Not now, continue
-        </button>
-    </div>
-</div>
+        <span style="font-style: italic; color: #D4AF37;">Install our f…
 [17:07, 7/3/2026] José Luis: <div id="pwa-install-prompt" style="display: none; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background-color: #000; border: 2px solid #D4AF37; padding: 25px; border-radius: 20px; z-index: 10000; width: 85%; max-width: 400px; text-align: center; box-shadow: 0px 15px 40px rgba(0,0,0,0.9);">
     
     <div id="prompt-content">
@@ -27,6 +15,15 @@
         </p>
         <p id="install-text" style="color: #ffffff; font-family: 'Arial', sans-serif; font-size: 0.95em; margin-bottom: 20px; line-height: 1.5;">
             Instala nuestra App gratuita para vivir la experiencia completa.<br>
+        …
+[17:16, 7/3/2026] José Luis: <div id="pwa-install-prompt" style="display: none; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background-color: #000; border: 2px solid #D4AF37; padding: 25px; border-radius: 20px; z-index: 10000; width: 85%; max-width: 400px; text-align: center; box-shadow: 0px 15px 40px rgba(0,0,0,0.9);">
+    
+    <div id="prompt-content">
+        <p style="color: #D4AF37; font-family: 'Montserrat', sans-serif; font-weight: bold; font-size: 1.3em; margin-bottom: 5px;">
+            BIENVENIDO / WELCOME
+        </p>
+        <p id="install-text" style="color: #ffffff; font-family: 'Arial', sans-serif; font-size: 0.95em; margin-bottom: 20px; line-height: 1.5;">
+            Instala nuestra aplicación gratuita para vivir la experiencia completa.<br>
             <span style="font-style: italic; color: #D4AF37;">Install our free App for the full experience.</span>
         </p>
         <div style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
@@ -69,16 +66,13 @@ window.addEventListener('beforeinstallprompt', (e) => {
 // 2. Acción al pulsar SÍ
 document.getElementById('pwa-btn-yes').addEventListener('click', async () => {
     if (deferredPrompt) {
-        // Ocultamos los botones y mostramos la barra
         promptContent.style.display = 'none';
         downloadSection.style.display = 'block';
 
-        // Animación de la barra de progreso
         let width = 0;
         const interval = setInterval(() => {
             if (width >= 100) {
                 clearInterval(interval);
-                // Cuando llega al 100%, lanzamos la instalación real del sistema
                 deferredPrompt.prompt();
                 deferredPrompt.userChoice.then((choiceResult) => {
                     installPrompt.style.display = 'none';
@@ -88,7 +82,7 @@ document.getElementById('pwa-btn-yes').addEventListener('click', async () => {
                 width++;
                 progressBar.style.width = width + '%';
             }
-        }, 25); // Velocidad de la descarga
+        }, 25);
     }
 });
 
@@ -96,5 +90,5 @@ document.getElementById('pwa-btn-yes').addEventListener('click', async () => {
 document.getElementById('pwa-btn-no').addEventListener('click', () => {
     installPrompt.style.display = 'none';
 });
-</script>  
+</script>
 
