@@ -16,9 +16,10 @@
       "purpose": "any"
     }
   ],
-  "start_url": "https://sites.google.com/view/taxi-link-service",
+  "start_url": "https://sites.google.com/view/taxi-link-service/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#D4AF37",
-  "orientation": "portrait"
+  "orientation": "portrait",
+  "scope": "/"
 }
