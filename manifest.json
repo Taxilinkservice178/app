@@ -1,15 +1,24 @@
 {
-  "name": "Taxi Link Service 178",
-  "short_name": "Taxi 178",
-  "start_url": "index.html",
-  "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#000000",
+  "short_name": "Taxi Link",
+  "name": "Taxi Link Service - Experience",
+  "description": "Luxury Experience - Puerto de la Cruz",
   "icons": [
     {
-      "src": "logo.png",
+      "src": "/TU_LOGOTIPO_ORO.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/TU_LOGOTIPO_ORO.png",
+      "type": "image/png",
       "sizes": "512x512",
-      "type": "image/png"
+      "purpose": "any maskable"
     }
-  ]
+  ],
+  "start_url": "/index.html",
+  "background_color": "#000000",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#D4AF37"
 }
