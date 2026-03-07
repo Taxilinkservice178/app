@@ -1,24 +1,24 @@
 {
   "short_name": "Taxi Link",
-  "name": "Taxi Link Service - Experience",
-  "description": "Luxury Experience - Puerto de la Cruz",
+  "name": "Taxi Link Service 178 - Experience",
+  "description": "No solo realices un viaje, vive la experiencia",
   "icons": [
     {
-      "src": "/TU_LOGOTIPO_ORO.png",
+      "src": "logo.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "any maskable"
     },
     {
-      "src": "/TU_LOGOTIPO_ORO.png",
+      "src": "logo.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any maskable"
     }
   ],
-  "start_url": "/index.html",
+  "start_url": "index.html",
   "background_color": "#000000",
   "display": "standalone",
-  "scope": "/",
+  "scope": "/app/",
   "theme_color": "#D4AF37"
 }
