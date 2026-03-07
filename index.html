@@ -1,94 +1,119 @@
-[17:03, 7/3/2026] José Luis: <div id="pwa-install-prompt" style="display: none; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background-color: #000; border: 2px solid #D4AF37; padding: 25px; border-radius: 20px; z-index: 10000; width: 85%; max-width: 400px; text-align: center; box-shadow: 0px 15px 40px rgba(0,0,0,0.9);">
+[18:05, 7/3/2026] José Luis: <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taxi Link Service - Official App</title>
+    <link rel="manifest" href="/manifest.json"> 
+    <style>
+        body { background-color: #000; color: #fff; font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; text-align: center; }
+        .oro { color: #D4AF37; }
+        .btn-yes { background-color: #D4AF37; color: #000; border: none; padding: 18px 50px; font-size: 1.3rem; font-weight: bold; border-radius: 8px; cursor: pointer; margin-bottom: 20px; transition: 0.3s; }
+        .btn-no { background-color: transparent; …
+[18:05, 7/3/2026] José Luis: <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taxi Link Service - Official App</title>
+    <link rel="manifest" href="/manifest.json"> 
+    <style>
+        body { background-color: #000; color: #fff; font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; text-align: center; }
+        .oro { color: #D4AF37; }
+        .btn-yes { background-color: #D4AF37; color: #000; border: none; padding: 18px 50px; font-size: 1.3rem; font-weight: bold; border-radius: 8px; cursor: pointer; margin-bottom: 20px; transition: 0.3s; }
+        .btn-no { background-color: transparent; …
+[18:09, 7/3/2026] José Luis: <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <p style="color: #D4AF37; font-family: 'Montserrat', sans-serif; font-weight: bold; font-size: 1.3em; margin-bottom: 5px;">
-        BIENVENIDO / WELCOME
-    </p>
-    
-    <p style="color: #ffffff; font-family: 'Arial', sans-serif; font-size: 0.95em; margin-bottom: 20px; line-height: 1.5;">
-        Instala nuestra App gratuita para vivir la experiencia completa.<br>
-        <span style="font-style: italic; color: #D4AF37;">Install our f…
-[17:07, 7/3/2026] José Luis: <div id="pwa-install-prompt" style="display: none; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background-color: #000; border: 2px solid #D4AF37; padding: 25px; border-radius: 20px; z-index: 10000; width: 85%; max-width: 400px; text-align: center; box-shadow: 0px 15px 40px rgba(0,0,0,0.9);">
-    
-    <div id="prompt-content">
-        <p style="color: #D4AF37; font-family: 'Montserrat', sans-serif; font-weight: bold; font-size: 1.3em; margin-bottom: 5px;">
-            BIENVENIDO / WELCOME
-        </p>
-        <p id="install-text" style="color: #ffffff; font-family: 'Arial', sans-serif; font-size: 0.95em; margin-bottom: 20px; line-height: 1.5;">
-            Instala nuestra App gratuita para vivir la experiencia completa.<br>
-        …
-[17:16, 7/3/2026] José Luis: <div id="pwa-install-prompt" style="display: none; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background-color: #000; border: 2px solid #D4AF37; padding: 25px; border-radius: 20px; z-index: 10000; width: 85%; max-width: 400px; text-align: center; box-shadow: 0px 15px 40px rgba(0,0,0,0.9);">
-    
-    <div id="prompt-content">
-        <p style="color: #D4AF37; font-family: 'Montserrat', sans-serif; font-weight: bold; font-size: 1.3em; margin-bottom: 5px;">
-            BIENVENIDO / WELCOME
-        </p>
-        <p id="install-text" style="color: #ffffff; font-family: 'Arial', sans-serif; font-size: 0.95em; margin-bottom: 20px; line-height: 1.5;">
-            Instala nuestra aplicación gratuita para vivir la experiencia completa.<br>
-            <span style="font-style: italic; color: #D4AF37;">Install our free App for the full experience.</span>
-        </p>
-        <div style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
-            <button id="pwa-btn-yes" style="background-color: #D4AF37; color: #000; border: none; padding: 18px 45px; border-radius: 35px; font-family: 'Bebas Neue', sans-serif; font-size: 1.3em; font-weight: bold; cursor: pointer; width: 100%;">
-                SÍ, INSTALAR / YES, INSTALL
-            </button>
-            <button id="pwa-btn-no" style="background-color: transparent; color: #888; border: none; font-family: Arial, sans-serif; font-size: 0.85em; cursor: pointer; text-decoration: underline;">
-                Ahora no, continuar / Not now, continue
-            </button>
-        </div>
+    <title>Taxi Link Service | Luxury Experience</title>
+    <meta name="description" content="Bienvenidos a bordo. Disfruta de la experiencia completa en nuestro Mercedes 124.">
+    <meta property="og:title" content="Taxi Link Service">
+    <meta property="og:description" content="Descarga nuestra App oficial - Totalmente gratuita">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#000000">
+
+    <style>
+        body { 
+            background-color: #000; 
+            color: #fff; 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh; 
+            margin: 0; 
+            text-align: center; 
+        }
+        .container { padding: 20px; }
+        .oro { color: #D4AF37; }
+        h1 { font-size: 2rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
+        p { font-size: 1.1rem; margin-bottom: 30px; opacity: 0.9; }
+        
+        /* BOTÓN YES (ORO) */
+        .btn-yes { 
+            background-color: #D4AF37; 
+            color: #000; 
+            border: none; 
+            padding: 18px 60px; 
+            font-size: 1.4rem; 
+            font-weight: bold; 
+            border-radius: 50px; 
+            cursor: pointer; 
+            margin-bottom: 20px; 
+            width: 250px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        /* BOTÓN NO (GRIS) */
+        .btn-no { 
+            background-color: transparent; 
+            color: #888; 
+            border: 1px solid #444; 
+            padding: 12px 40px; 
+            font-size: 1rem; 
+            border-radius: 50px; 
+            cursor: pointer; 
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 id="txtWelcome">Bienvenidos / Welcome</h1>
+        <p id="txtDesc">Descarga nuestra App oficial</p>
+        <p class="oro" id="txtFree">TOTALMENTE GRATUITA / TOTALLY FREE</p>
+
+        <button class="btn-yes" onclick="btnYes()">YES</button><br>
+        <button class="btn-no" onclick="btnNo()">NO</button>
     </div>
 
-    <div id="download-section" style="display: none; padding: 20px 0;">
-        <p style="color: #D4AF37; font-family: 'Montserrat', sans-serif; margin-bottom: 15px;">Instalando / Installing...</p>
-        <div style="width: 100%; background-color: #333; height: 10px; border-radius: 5px; overflow: hidden;">
-            <div id="progress-bar" style="width: 0%; height: 100%; background-color: #D4AF37; transition: width 0.1s;"></div>
-        </div>
-    </div>
-</div>
+    <script>
+        // 1. MOTOR DE IDIOMA INVISIBLE
+        const userLang = navigator.language || navigator.userLanguage;
+        const shortLang = userLang.split('-')[0];
 
-<script>
-let deferredPrompt;
-const installPrompt = document.getElementById('pwa-install-prompt');
-const promptContent = document.getElementById('prompt-content');
-const downloadSection = document.getElementById('download-section');
-const progressBar = document.getElementById('progress-bar');
+        // 2. LÓGICA DE TRADUCCIÓN AUTOMÁTICA
+        if (!userLang.includes('es')) {
+            document.getElementById('txtWelcome').innerText = "Welcome";
+            document.getElementById('txtDesc').innerText = "Download our official App";
+            document.getElementById('txtFree').innerText = "TOTALLY FREE";
+        }
 
-// 1. Detectar idioma y mostrar aviso
-window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
-    installPrompt.style.display = 'block';
-    
-    const userLang = navigator.language || navigator.userLanguage;
-    if (userLang.startsWith('de')) {
-        document.getElementById('install-text').innerHTML = 'Installieren Sie unsere kostenlose App für das volle Erlebnis.<br><span style="font-style: italic; color: #D4AF37;">Install our free App.</span>';
-    }
-});
+        // 3. FUNCIÓN PARA EL "NO" (La rama oculta de Google)
+        function btnNo() {
+            // Mandamos a Google pero con el idioma inyectado
+            window.location.href = "https://sites.google.com/view/taxi-link-service/página-principal?hl=" + shortLang;
+        }
 
-// 2. Acción al pulsar SÍ
-document.getElementById('pwa-btn-yes').addEventListener('click', async () => {
-    if (deferredPrompt) {
-        promptContent.style.display = 'none';
-        downloadSection.style.display = 'block';
-
-        let width = 0;
-        const interval = setInterval(() => {
-            if (width >= 100) {
-                clearInterval(interval);
-                deferredPrompt.prompt();
-                deferredPrompt.userChoice.then((choiceResult) => {
-                    installPrompt.style.display = 'none';
-                    deferredPrompt = null;
-                });
-            } else {
-                width++;
-                progressBar.style.width = width + '%';
-            }
-        }, 25);
-    }
-});
-
-// 3. Acción al pulsar NO
-document.getElementById('pwa-btn-no').addEventListener('click', () => {
-    installPrompt.style.display = 'none';
-});
-</script>
+        // 4. FUNCIÓN PARA EL "YES" (La Apple)
+        function btnYes() {
+            // Aquí el sistema gestiona la instalación. 
+            // Si no puede instalar, por defecto manda a la web para no dejar al cliente colgado.
+            if ('serviceWorker' in navigator && window.matchMedia('(display-mode: browser)').matches) {
+                //
 
