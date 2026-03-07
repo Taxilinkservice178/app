@@ -16,7 +16,7 @@
       "purpose": "any"
     }
   ],
-  "start_url": "https://sites.google.com/view/taxi-link-service/p%C3%A1gina-principal",
+  "start_url": "https://sites.google.com/view/taxi-link-service",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#D4AF37",
