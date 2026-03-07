@@ -8,49 +8,77 @@
     <style>
         body { background-color: #000000; color: #FFFFFF; font-family: Arial, sans-serif; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; margin: 0; }
         img { width: 150px; margin-bottom: 20px; }
-        h1 { color: #D4AF37; font-size: 24px; }
+        h1 { color: #D4AF37; font-size: 24px; text-transform: uppercase; letter-spacing: 2px; }
         .buttons { margin-top: 30px; }
-        button { padding: 15px 30px; font-size: 18px; cursor: pointer; border-radius: 10px; border: none; margin: 10px; font-weight: bold; }
+        button { padding: 15px 30px; font-size: 18px; cursor: pointer; border-radius: 10px; border: none; margin: 10px; font-weight: bold; transition: 0.3s; }
         .btn-yes { background-color: #D4AF37; color: #000000; }
         .btn-no { background-color: #333333; color: #FFFFFF; }
+        
+        /* BARRA DE CARGA LUJO */
+        #progress-container { display: none; width: 80%; max-width: 400px; background-color: #1a1a1a; border-radius: 20px; margin-top: 30px; border: 1px solid #D4AF37; padding: 3px; }
+        #progress-bar { width: 0%; height: 15px; background-color: #D4AF37; border-radius: 20px; transition: width 0.1s; }
+        #status-text { color: #D4AF37; margin-top: 15px; font-size: 16px; font-weight: normal; display: none; }
     </style>
 </head>
 <body>
 
     <img src="logo.png" alt="Logo Taxi Link">
-    <h1>BIENVENIDOS / WELCOME</h1>
-    <p>Descarga nuestra Apple Oficial totalmente gratuita</p>
-    <p><i>Twenty cow free - Instalar Yes Now</i></p>
+    <h1>BIENVENIDOS</h1>
+    <p>Haz clic en <b>YES</b> para instalar la aplicación oficial</p>
 
-    <div class="buttons">
-        <button class="btn-yes" onclick="btnYes()">YES</button>
-        <button class="btn-no" onclick="btnNo()">NO</button>
+    <div id="main-ui">
+        <div class="buttons">
+            <button class="btn-yes" onclick="startDownload()">YES</button>
+            <button class="btn-no" onclick="window.location.href='https://sites.google.com/view/taxi-link-service/p%C3%A1gina-principal'">NO</button>
+        </div>
     </div>
+
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+    <div id="status-text">La descarga está en curso, solo tardará unos segundos...</div>
 
     <script>
         let deferredPrompt;
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js');
-        }
-
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
         });
 
-        function btnYes() {
+        function startDownload() {
+            document.getElementById('main-ui').style.display = 'none';
+            document.getElementById('progress-container').style.display = 'block';
+            document.getElementById('status-text').style.display = 'block';
+
+            let width = 0;
+            let bar = document.getElementById('progress-bar');
+            let status = document.getElementById('status-text');
+            
+            let interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    status.innerText = "¡DESCARGA FINALIZADA!";
+                    setTimeout(() => {
+                        showInstallPrompt();
+                    }, 800);
+                } else {
+                    width++;
+                    bar.style.width = width + '%';
+                }
+            }, 50); // Velocidad ajustada para que dure unos 5 segundos
+        }
+
+        function showInstallPrompt() {
             if (deferredPrompt) {
                 deferredPrompt.prompt();
-                deferredPrompt.userChoice.then((choiceResult) => {
-                    deferredPrompt = null;
-                });
+                deferredPrompt.userChoice.then(() => { deferredPrompt = null; });
             } else {
-                alert("Para instalar en tu Xiaomi:\n1. Pulsa los 3 PUNTITOS de arriba.\n2. Dale a 'Instalar aplicación' o 'Añadir a pantalla de inicio'.");
+                alert("¡Casi listo!\n\nPara finalizar en tu Xiaomi:\n1. Pulsa los 3 PUNTITOS de arriba.\n2. Selecciona 'Instalar aplicación' o 'Añadir a pantalla de inicio'.");
             }
         }
 
-        function btnNo() {
-            window.location.href = "https://sites.google.com/view/taxi-link-service/p%C3%A1gina-principal";
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
         }
     </script>
 </body>
