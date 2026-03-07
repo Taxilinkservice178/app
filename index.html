@@ -1,38 +1,11 @@
-[18:05, 7/3/2026] José Luis: <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taxi Link Service - Official App</title>
-    <link rel="manifest" href="/manifest.json"> 
-    <style>
-        body { background-color: #000; color: #fff; font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; text-align: center; }
-        .oro { color: #D4AF37; }
-        .btn-yes { background-color: #D4AF37; color: #000; border: none; padding: 18px 50px; font-size: 1.3rem; font-weight: bold; border-radius: 8px; cursor: pointer; margin-bottom: 20px; transition: 0.3s; }
-        .btn-no { background-color: transparent; …
-[18:05, 7/3/2026] José Luis: <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taxi Link Service - Official App</title>
-    <link rel="manifest" href="/manifest.json"> 
-    <style>
-        body { background-color: #000; color: #fff; font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; text-align: center; }
-        .oro { color: #D4AF37; }
-        .btn-yes { background-color: #D4AF37; color: #000; border: none; padding: 18px 50px; font-size: 1.3rem; font-weight: bold; border-radius: 8px; cursor: pointer; margin-bottom: 20px; transition: 0.3s; }
-        .btn-no { background-color: transparent; …
-[18:09, 7/3/2026] José Luis: <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Taxi Link Service | Luxury Experience</title>
-    <meta name="description" content="Bienvenidos a bordo. Disfruta de la experiencia completa en nuestro Mercedes 124.">
-    <meta property="og:title" content="Taxi Link Service">
-    <meta property="og:description" content="Descarga nuestra App oficial - Totalmente gratuita">
-    <meta property="og:type" content="website">
+    
+    <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#000000">
 
     <style>
@@ -44,16 +17,16 @@
             flex-direction: column; 
             align-items: center; 
             justify-content: center; 
-            height: 100vh; 
+            min-height: 100vh; 
             margin: 0; 
             text-align: center; 
         }
         .container { padding: 20px; }
+        .logo-img { max-width: 180px; margin-bottom: 20px; }
         .oro { color: #D4AF37; }
-        h1 { font-size: 2rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
-        p { font-size: 1.1rem; margin-bottom: 30px; opacity: 0.9; }
+        h1 { font-size: 1.8rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
+        p { font-size: 1.1rem; margin-bottom: 20px; opacity: 0.9; }
         
-        /* BOTÓN YES (ORO) */
         .btn-yes { 
             background-color: #D4AF37; 
             color: #000; 
@@ -64,11 +37,10 @@
             border-radius: 50px; 
             cursor: pointer; 
             margin-bottom: 20px; 
-            width: 250px;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            width: 260px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
         }
         
-        /* BOTÓN NO (GRIS) */
         .btn-no { 
             background-color: transparent; 
             color: #888; 
@@ -78,42 +50,48 @@
             border-radius: 50px; 
             cursor: pointer; 
             width: 200px;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
+        <img src="logo.png" alt="Taxi Link Logo" class="logo-img">
+        
         <h1 id="txtWelcome">Bienvenidos / Welcome</h1>
         <p id="txtDesc">Descarga nuestra App oficial</p>
         <p class="oro" id="txtFree">TOTALMENTE GRATUITA / TOTALLY FREE</p>
 
-        <button class="btn-yes" onclick="btnYes()">YES</button><br>
+        <button class="btn-yes" onclick="btnYes()">INSTALAR / YES</button><br>
         <button class="btn-no" onclick="btnNo()">NO</button>
     </div>
 
     <script>
-        // 1. MOTOR DE IDIOMA INVISIBLE
-        const userLang = navigator.language || navigator.userLanguage;
-        const shortLang = userLang.split('-')[0];
+        // 1. REGISTRO DEL PUENTE (SERVICE WORKER) PARA QUE SEA APP
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js');
+            });
+        }
 
-        // 2. LÓGICA DE TRADUCCIÓN AUTOMÁTICA
+        // 2. LÓGICA DE IDIOMA
+        const userLang = navigator.language || navigator.userLanguage;
         if (!userLang.includes('es')) {
             document.getElementById('txtWelcome').innerText = "Welcome";
             document.getElementById('txtDesc').innerText = "Download our official App";
             document.getElementById('txtFree').innerText = "TOTALLY FREE";
         }
 
-        // 3. FUNCIÓN PARA EL "NO" (La rama oculta de Google)
+        // 3. FUNCIONES DE LOS BOTONES
         function btnNo() {
-            // Mandamos a Google pero con el idioma inyectado
-            window.location.href = "https://sites.google.com/view/taxi-link-service/página-principal?hl=" + shortLang;
+            window.location.href = "https://sites.google.com/view/taxi-link-service/página-principal";
         }
 
-        // 4. FUNCIÓN PARA EL "YES" (La Apple)
         function btnYes() {
-            // Aquí el sistema gestiona la instalación. 
-            // Si no puede instalar, por defecto manda a la web para no dejar al cliente colgado.
-            if ('serviceWorker' in navigator && window.matchMedia('(display-mode: browser)').matches) {
-                //
-
+            // Esta función activa la instalación en móviles compatibles
+            alert("Pulsa en 'Añadir a pantalla de inicio' para instalar tu App de Taxi Link");
+        }
+    </script>
+</body>
+</html>
