@@ -1,25 +1,25 @@
 {
-  "short_name": "Taxi Link 178",
   "name": "Taxi Link Service 178",
+  "short_name": "Taxi Link 178",
   "description": "No solo realices un viaje, vive la experiencia",
   "icons": [
     {
       "src": "logo.png",
-      "type": "image/png",
       "sizes": "192x192",
-      "purpose": "any maskable"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "logo.png",
-      "type": "image/png",
       "sizes": "512x512",
+      "type": "image/png",
       "purpose": "any"
     }
   ],
-  "start_url": "https://sites.google.com/view/taxi-link-service/",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#D4AF37",
   "orientation": "portrait",
-  "scope": "/"
+  "scope": "./"
 }
