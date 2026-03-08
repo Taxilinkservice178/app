@@ -42,7 +42,9 @@
         let deferredPrompt;
         const CATALOG_URL = "https://sites.google.com/view/taxi-link-service/";
 
+        // 1. ESCUCHA "EDUCADA" PARA EL XIAOMI 14 Y OTROS
         window.addEventListener('beforeinstallprompt', (e) => {
+            console.log('El sistema está listo para instalar');
             e.preventDefault();
             deferredPrompt = e;
         });
@@ -68,25 +70,37 @@
                     // PASO FINAL: Lanzar instalación y luego IR AL CATÁLOGO
                     setTimeout(() => {
                         if (deferredPrompt) {
+                            // Si el móvil permite instalar, lanza la pregunta oficial
                             deferredPrompt.prompt();
                             deferredPrompt.userChoice.then((choiceResult) => {
+                                if (choiceResult.outcome === 'accepted') {
+                                    console.log('Usuario aceptó instalar el logo de oro');
+                                }
                                 deferredPrompt = null;
                                 window.location.href = CATALOG_URL;
                             });
                         } else {
-                            // Si ya está instalado o no detecta el prompt, salta directo
+                            // Si ya está instalado o el móvil bloquea el aviso, va directo al catálogo
+                            console.log('No se pudo lanzar el prompt, redirigiendo...');
                             window.location.href = CATALOG_URL;
                         }
-                    }, 1000);
+                    }, 1200); // Un pelín más de tiempo para que se vea el éxito
                 } else {
                     width++;
                     bar.style.width = width + '%';
                 }
-            }, 50); 
+            }, 40); // Un poquito más rápido para que no se haga pesado
         }
 
+        // REGISTRO DEL SERVICE WORKER (IMPORTANTE PARA EL LOGO)
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js');
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js').then(reg => {
+                    console.log('Service Worker registrado con éxito');
+                }).catch(err => {
+                    console.log('Error al registrar Service Worker', err);
+                });
+            });
         }
     </script>
 </body>
